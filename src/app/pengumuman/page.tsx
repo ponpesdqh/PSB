@@ -1,12 +1,16 @@
 import Link from 'next/link';
+import { getPublicConfig } from '@/lib/api';
 
-export default function Pengumuman() {
+export default async function Pengumuman() {
+    const config = await getPublicConfig();
+    const schoolName = config?.namaSekolah || "Ma'had Darul Qur'an Wal Hadits OKU Timur";
+
     const pengumumanDatas = [
         {
             id: 1,
-            title: 'Hasil Seleksi Gelombang 1 Tahun 2026/2027',
+            title: 'Hasil Seleksi Gelombang 1',
             date: '10 Maret 2026',
-            content: 'Alhamdulillah, ujian seleksi berbasis CBT untuk gelombang 1 telah selesai. Berikut adalah daftar santri yang dinyatakan DITERIMA di Ma\'had Darul Qur\'an Wal Hadits OKU Timur.',
+            content: `Alhamdulillah, ujian seleksi berbasis CBT untuk gelombang 1 telah selesai. Berikut adalah daftar santri yang dinyatakan DITERIMA di ${schoolName}.`,
             link: '#'
         },
         {

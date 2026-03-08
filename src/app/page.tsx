@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import { getPublicConfig } from '@/lib/api';
 
-export default function Home() {
+export default async function Home() {
+  const config = await getPublicConfig();
+  const schoolName = config?.namaSekolah || "Pondok Pesantren Darul Quran wal Hadits OKU Timur";
+  const welcomeText = config?.pesanSambutan || "Pondok Pesantren berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.";
+  const tahunAjaran = config?.tahunAjaran || "2026/2027";
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -10,13 +15,13 @@ export default function Home() {
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-start justify-center text-left">
           <div className="inline-block py-1 px-3 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-sm font-semibold mb-6 tracking-wide">
-            Penerimaan Santri Baru 2026/2027
+            Penerimaan Santri Baru {tahunAjaran}
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 max-w-3xl leading-tight">
             Membangun Generasi Rabbani di Atas Manhaj <span className="text-emerald-400">Salafus Shalih</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
-            Pondok Pesantren Darul Quran wal Hadits OKU Timur berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.
+            {welcomeText}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link

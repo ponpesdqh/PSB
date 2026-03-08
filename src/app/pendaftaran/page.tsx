@@ -1,8 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getPublicConfig, PublicData, JenjangItem } from '@/lib/api';
 
 export default function Pendaftaran() {
+    const [config, setConfig] = useState<PublicData | null>(null);
+    const [isLoadingConfig, setIsLoadingConfig] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
@@ -26,6 +29,15 @@ export default function Pendaftaran() {
         alamat: '',
         no_wa: '', // Backup utama
     });
+
+    useEffect(() => {
+        const fetchConfig = async () => {
+            const data = await getPublicConfig();
+            if (data) setConfig(data);
+            setIsLoadingConfig(false);
+        };
+        fetchConfig();
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const value = e.target.type === 'radio' ? e.target.value : e.target.value;
@@ -95,7 +107,7 @@ export default function Pendaftaran() {
                         Formulir Pendaftaran Santri Baru
                     </h1>
                     <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                        Tahun Ajaran 2026/2027 Pondok Pesantren DQH
+                        Tahun Ajaran {config?.tahunAjaran || '2026/2027'} {config?.namaSekolah || 'Pondok Pesantren'}
                     </p>
                 </div>
 
@@ -126,21 +138,20 @@ export default function Pendaftaran() {
                                 <div>
                                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Pilih Jenjang Sekolah <span className="text-red-500">*</span></label>
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                        {[
-                                            { id: 'PAUD', label: 'PAUD Islam', icon: '🌱' },
-                                            { id: 'SD', label: 'SD Islam (Miftahul Khoir)', icon: '🎒' },
-                                            { id: 'MTW', label: 'MTW (Setara SMP)', icon: '📖' },
-                                            { id: 'IL', label: 'I\'dad Lughawi (Pra-TSN)', icon: '🗣️' },
-                                            { id: 'TSN', label: 'TSN (Setara SMA)', icon: '🎓' },
-                                            { id: 'MAL', label: 'Ma\'had \'Ali (S1)', icon: '🏛️' }
-                                        ].map((j) => (
-                                            <label key={j.id} className={`cursor-pointer rounded-xl border-2 p-3 transition-all duration-200 text-center flex flex-col items-center gap-1 ${formData.jenjang === j.id ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/40 shadow-md' : 'border-slate-200 hover:border-emerald-300 dark:border-slate-700'}`}>
-                                                <input required type="radio" name="jenjang" value={j.id} checked={formData.jenjang === j.id} onChange={handleChange} className="sr-only" />
-                                                <span className="text-2xl">{j.icon}</span>
-                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200">{j.id}</span>
-                                                <span className="text-xs text-slate-500">{j.label.split('(')[0]}</span>
-                                            </label>
-                                        ))}
+                                        {isLoadingConfig ? (
+                                            <div className="col-span-full text-center py-4 text-slate-500">Memuat opsi jenjang...</div>
+                                        ) : config?.jenjangList && config.jenjangList.length > 0 ? (
+                                            config.jenjangList.map((j: JenjangItem) => (
+                                                <label key={j.base} className={`cursor-pointer rounded-xl border-2 p-3 transition-all duration-200 text-center flex flex-col items-center gap-1 ${formData.jenjang === j.base ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/40 shadow-md' : 'border-slate-200 hover:border-emerald-300 dark:border-slate-700'}`}>
+                                                    <input required type="radio" name="jenjang" value={j.base} checked={formData.jenjang === j.base} onChange={handleChange} className="sr-only" />
+                                                    <span className="text-2xl">🏫</span>
+                                                    <span className="font-bold text-sm text-slate-800 dark:text-slate-200">{j.base}</span>
+                                                    <span className="text-xs text-slate-500">{j.label}</span>
+                                                </label>
+                                            ))
+                                        ) : (
+                                            <div className="col-span-full text-center py-4 text-red-500">Gagal memuat jenjang. Silakan refresh.</div>
+                                        )}
                                     </div>
                                 </div>
 
