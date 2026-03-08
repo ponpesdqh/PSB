@@ -3,6 +3,7 @@ import { Outfit } from 'next/font/google';
 import Link from 'next/link';
 import './globals.css';
 import { getPublicConfig } from '@/lib/api';
+import MobileMenu from '@/components/MobileMenu';
 
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
@@ -43,12 +44,7 @@ export default async function RootLayout({
                 <Link href="/test" className="text-slate-600 hover:text-emerald-600 dark:text-slate-300 dark:hover:text-emerald-400 font-medium transition-colors">Test Online</Link>
               </nav>
               <div className="md:hidden flex items-center">
-                {/* Mobile menu button */}
-                <button className="text-slate-600 hover:text-emerald-600 p-2">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                </button>
+                <MobileMenu />
               </div>
             </div>
           </div>

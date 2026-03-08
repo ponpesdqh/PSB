@@ -3,8 +3,8 @@ import { getPublicConfig } from '@/lib/api';
 
 export default async function Home() {
   const config = await getPublicConfig();
-  const schoolName = config?.namaSekolah || "Pondok Pesantren Darul Quran wal Hadits OKU Timur";
-  const welcomeText = config?.pesanSambutan || "Pondok Pesantren berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.";
+  const schoolName = config?.namaSekolah || "Pondok Pesantren";
+  const welcomeText = config?.pesanSambutan || `${schoolName} berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.`;
   const tahunAjaran = config?.tahunAjaran || "2026/2027";
   return (
     <div className="flex flex-col min-h-screen">

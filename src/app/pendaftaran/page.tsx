@@ -40,8 +40,8 @@ export default function Pendaftaran() {
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const value = e.target.type === 'radio' ? e.target.value : e.target.value;
-        setFormData({ ...formData, [e.target.name]: value });
+        // RED-1 FIX: Simplified — both branches were identical
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const nextStep = () => setStep((prev) => Math.min(prev + 1, 3));
@@ -165,12 +165,12 @@ export default function Pendaftaran() {
 
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">NIK Santri <span className="text-red-500">*</span></label>
-                                        <input required name="nik" value={formData.nik} onChange={handleChange} type="number" minLength={16} maxLength={16} className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors" placeholder="16 Digit NIK di KK" />
+                                        <input required name="nik" value={formData.nik} onChange={handleChange} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={16} className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors" placeholder="16 Digit NIK di KK" />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">NISN (Opsional)</label>
-                                        <input name="nisn" value={formData.nisn} onChange={handleChange} type="number" className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors" placeholder="Kosongkan jika tidak ada" />
+                                        <input name="nisn" value={formData.nisn} onChange={handleChange} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={10} className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors" placeholder="Kosongkan jika tidak ada" />
                                     </div>
 
                                     <div>
@@ -218,7 +218,7 @@ export default function Pendaftaran() {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">NIK Ayah <span className="text-red-500">*</span></label>
-                                        <input required name="nik_ayah" value={formData.nik_ayah} onChange={handleChange} type="number" className="w-full px-4 py-3 rounded-xl border-white/80 bg-white/80 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit NIK Ayah" />
+                                        <input required name="nik_ayah" value={formData.nik_ayah} onChange={handleChange} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={16} className="w-full px-4 py-3 rounded-xl border-white/80 bg-white/80 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit NIK Ayah" />
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">No HP / WhatsApp Ayah <span className="text-red-500">*</span></label>
@@ -236,7 +236,7 @@ export default function Pendaftaran() {
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">NIK Ibu <span className="text-red-500">*</span></label>
-                                        <input required name="nik_ibu" value={formData.nik_ibu} onChange={handleChange} type="number" className="w-full px-4 py-3 rounded-xl border-white/80 bg-white/80 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit NIK Ibu" />
+                                        <input required name="nik_ibu" value={formData.nik_ibu} onChange={handleChange} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={16} className="w-full px-4 py-3 rounded-xl border-white/80 bg-white/80 dark:bg-slate-900 dark:border-slate-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit NIK Ibu" />
                                     </div>
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">No HP / WhatsApp Ibu <span className="text-red-500">*</span></label>
@@ -247,7 +247,7 @@ export default function Pendaftaran() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5 border border-slate-200 dark:border-slate-800 rounded-2xl">
                                     <div>
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Nomor Kartu Keluarga (KK) <span className="text-red-500">*</span></label>
-                                        <input required name="no_kk" value={formData.no_kk} onChange={handleChange} type="number" className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit Nomor KK" />
+                                        <input required name="no_kk" value={formData.no_kk} onChange={handleChange} type="text" inputMode="numeric" pattern="[0-9]*" maxLength={16} className="w-full px-4 py-3 rounded-xl border-slate-200 bg-white/50 dark:bg-slate-900 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" placeholder="16 Digit Nomor KK" />
                                     </div>
                                     <div className="md:col-span-2">
                                         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Alamat Lengkap Domisili <span className="text-red-500">*</span></label>

@@ -35,15 +35,16 @@ export async function getPublicConfig(): Promise<PublicData | null> {
     }
 
     try {
-        const res = await fetch(`${apiUrl}?action=getPublicData`, {
+        // BUG-4 FIX: `next: { revalidate }` only works in Server Components.
+        // On client-side (useEffect), we use cache: 'no-store' instead.
+        const isServer = typeof window === 'undefined';
+        const fetchOptions: RequestInit = {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-            },
-            // Revalidate every 60 seconds (ISR - Incremental Static Regeneration)
-            // This means the site is still static and extremely fast, but updates dynamically at max within 1 minute of Google Sheets change.
-            next: { revalidate: 60 }
-        });
+            headers: { 'Accept': 'application/json' },
+            ...(isServer ? { next: { revalidate: 60 } } as any : { cache: 'no-store' as RequestCache }),
+        };
+
+        const res = await fetch(`${apiUrl}?action=getPublicData`, fetchOptions);
 
         if (!res.ok) {
             console.error('Failed to fetch public data:', res.statusText);
