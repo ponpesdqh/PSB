@@ -6,7 +6,7 @@ export default function Pengumuman() {
             id: 1,
             title: 'Hasil Seleksi Gelombang 1 Tahun 2026/2027',
             date: '10 Maret 2026',
-            content: 'Alhamdulillah, ujian seleksi berbasis CBT untuk gelombang 1 telah selesai. Berikut adalah daftar santri yang dinyatakan DITERIMA di Ma\'had Salaf As-Sunnah.',
+            content: 'Alhamdulillah, ujian seleksi berbasis CBT untuk gelombang 1 telah selesai. Berikut adalah daftar santri yang dinyatakan DITERIMA di Ma\'had Darul Qur\'an Wal Hadits OKU Timur.',
             link: '#'
         },
         {

@@ -16,7 +16,7 @@ export default function Home() {
             Membangun Generasi Rabbani di Atas Manhaj <span className="text-emerald-400">Salafus Shalih</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
-            Pondok Pesantren As-Sunnah berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.
+            Pondok Pesantren Darul Quran wal Hadits OKU Timur berkomitmen mencetak santri yang berakidah lurus, berakhlak mulia, dan unggul dalam ilmu syar'i maupun umum.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link

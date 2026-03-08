@@ -6,8 +6,8 @@ import './globals.css';
 const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
-  title: 'PSB - Pondok Pesantren Salaf Tabiin',
-  description: 'Penerimaan Santri Baru Pondok Pesantren Bermanhaj Salaf',
+  title: 'PSB - Pondok Pesantren Darul Quran wal Hadits OKU Timur',
+  description: 'Penerimaan Santri Baru Pondok Pesantren',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
             <div className="flex justify-between items-center h-20">
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
-                  Ma'had Salaf <span className="text-slate-800 dark:text-slate-200">As-Sunnah</span>
+                  Ma'had Darul Qur'an <span className="text-slate-800 dark:text-slate-200">Wal Hadits</span>
                 </Link>
               </div>
               <nav className="hidden md:flex space-x-8">
@@ -56,11 +56,11 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-slate-400">
               <div className="mb-4 md:mb-0">
-                <span className="text-lg font-semibold text-white">Ma'had Salaf As-Sunnah</span>
+                <span className="text-lg font-semibold text-white">Ma'had Darul Qur'an Wal Hadits OKU Timur</span>
                 <p className="mt-2 text-sm max-w-md">Mencetak generasi rabbani yang berpegang teguh pada Al-Qur'an dan As-Sunnah sesuai pemahaman Salafus Shalih.</p>
               </div>
               <div className="text-sm">
-                &copy; {new Date().getFullYear()} Pondok Pesantren As-Sunnah. All rights reserved.
+                &copy; {new Date().getFullYear()} Pondok Pesantren Darul Quran wal Hadits OKU Timur. All rights reserved.
               </div>
             </div>
           </div>
