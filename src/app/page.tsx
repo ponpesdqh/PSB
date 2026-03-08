@@ -35,108 +35,138 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Muqaddimah & Overview */}
+      {/* Overview Ponpes */}
       <section className="py-16 bg-white dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Kenapa Memilih SD Islam Miftahul Khoir?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Program Pendidikan Ponpes DQH OKUT</h2>
             <div className="w-24 h-1.5 bg-emerald-500 mx-auto rounded-full"></div>
             <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-4xl mx-auto text-lg leading-relaxed">
-              Zaman sudah mulai berubah, lingkungan yang buruk, teman bermain dan wawasan negatif sangat berpengaruh terhadap perkembangan anak. Yayasan Kunci Kebaikan OKU Timur mendirikan SD Islam Miftahul Khoir untuk mencetak generasi muslim yang berilmu, taat beribadah dan bermanfaat. <br /><br />
-              <span className="font-semibold italic">"Jangan salah memilih sekolah!"</span>
+              Bismillah. Pendaftaran Pondok Pesantren Darul-Qur'an Wal-Hadits (DQH) OKU Timur meliputi 6 jenjang pendidikan: PAUD, SD, Mutawassithah (SMP), I'dad Lughawi (IL), Tsanawiyah (SMA), dan Ma'had 'Ali (S1).<br /><br />
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">Seluruh jenjang (terutama tingkat menengah ke atas) ditargetkan insyaallah akan menguasai bahasa Arab aktif dan pasif dalam 3 bulan.</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* Grid Features */}
+      {/* Tabel Program (Responsive Grid) */}
       <section className="py-12 bg-slate-50 dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {/* Target Kelulusan */}
-            <div className="glass p-8 rounded-3xl border-t-4 border-t-emerald-500 shadow-xl bg-white dark:bg-slate-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-2xl">🎯</div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Target Kelulusan</h3>
-              </div>
-              <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Mampu menghafal dalil-dalil dasar agama Islam.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Mampu membaca Al-Quran dengan baik dan benar (Tajwid).</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Hafal minimal 5 juz Al-Quran.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Hafal minimal 100 hadits pendek beserta maknanya.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Mengamalkan doa-doa harian.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Rajin shalat 5 waktu (di masjid untuk laki-laki).</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Gemar membaca.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Lulus Asesmen Nasional standar Dinas Pendidikan.</li>
-                <li className="flex gap-2"><span className="text-emerald-500 font-bold">✓</span> Menguasai life skill dasar.</li>
-              </ul>
-            </div>
+          <div className="overflow-x-auto rounded-3xl shadow-xl mb-16">
+            <table className="min-w-full text-sm text-left bg-white dark:bg-slate-800">
+              <thead className="bg-emerald-600 text-white font-bold text-center">
+                <tr>
+                  <th className="px-4 py-4 border-r border-emerald-500/30">JENJANG PENDIDIKAN</th>
+                  <th className="px-2 py-4 border-r border-emerald-500/30">FOKUS UTAMA / LAMA BELAJAR</th>
+                  <th className="px-2 py-4 border-r border-emerald-500/30">TARGET UMUM</th>
+                  <th className="px-2 py-4 border-r border-emerald-500/30">HAFALAN (AL-QURAN & HADITS)</th>
+                  <th className="px-2 py-4">KETERANGAN / BEASISWA</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700 text-slate-700 dark:text-slate-300">
 
-            {/* Materi Pelajaran & Syarat */}
-            <div className="space-y-8">
-              <div className="glass p-8 rounded-3xl border-l-4 border-l-amber-500 shadow-xl bg-white dark:bg-slate-800">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/50 rounded-xl flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl">📚</div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Materi Pelajaran</h3>
-                </div>
-                <div className="text-sm text-slate-600 dark:text-slate-300 space-y-4">
-                  <div>
-                    <strong className="text-slate-800 dark:text-slate-200">Umum:</strong><br />
-                    Kejar Paket A sesuai standar Dinas Pendidikan & Kebudayaan.
-                  </div>
-                  <div>
-                    <strong className="text-slate-800 dark:text-slate-200">Diniyah:</strong><br />
-                    Aqidah Akhlak, Fiqh Ibadah, Adab Islami, Tajwid, Kisah/Sirah, Bahasa Arab, BTA, Hafalan Quran, Hafalan Doa & Hadits.
-                  </div>
-                </div>
-              </div>
+                {/* 1. PAUD */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                  <td className="px-4 py-4 font-bold text-pink-700 dark:text-pink-400 border-r border-slate-100 dark:border-slate-700">1. PAUD Islam</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Pendidikan Anak Usia Dini</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Pengenalan Adab Dasar Islami</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Doa Harian & Surah Pendek</td>
+                  <td className="px-2 py-4 text-center text-slate-500">Membentuk pondasi Akhlak</td>
+                </tr>
 
-              <div className="glass p-8 rounded-3xl border-l-4 border-l-blue-500 shadow-xl bg-white dark:bg-slate-800">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Waktu & Tempat Pendaftaran</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300">
-                  <strong className="text-slate-800 dark:text-slate-200 block mb-1">⏰ Jam 07.00 s.d 11.00</strong>
-                  Senin s.d Jumat di Kantor Ponpes Darul-Qur'an Wal-Hadits OKU Timur.
-                </p>
-                <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-                  <p className="text-xs text-slate-500">
-                    Syarat pendaftaran minimal 6 tahun (per Juli), fotokopi KTP/KK/Akte (masing-masing 3 lembar), pas foto 3x4 (4 lembar), biaya pendaftaran Rp. 100.000 (Gratis bagi tidak mampu).
-                  </p>
-                </div>
-              </div>
-            </div>
+                {/* 2. SD */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors bg-slate-50/50 dark:bg-slate-800/50">
+                  <td className="px-4 py-4 font-bold text-orange-700 dark:text-orange-400 border-r border-slate-100 dark:border-slate-700">2. SD Islam (Miftahul Khoir)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">6 tahun</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Kejar Paket A, Tajwid, Life Skill</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">5 juz & 100 Hadits</td>
+                  <td className="px-2 py-4 text-center text-slate-500">Seluruh fasilitas milik sendiri</td>
+                </tr>
 
-            {/* Fasilitas */}
-            <div className="glass p-8 rounded-3xl border-t-4 border-t-emerald-500 shadow-xl bg-emerald-50 dark:bg-slate-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-emerald-200 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center text-emerald-700 dark:text-emerald-400 text-2xl">🕌</div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Fasilitas Ponpes</h3>
-              </div>
-              <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold mb-3">Seluruh Gedung Milik Sendiri</p>
-              <ul className="grid grid-cols-2 gap-x-2 gap-y-3 text-sm text-slate-700 dark:text-slate-300">
-                <li className="flex gap-2"><span>1.</span> Masjid</li>
-                <li className="flex gap-2"><span>2.</span> Mushalla Akhwat</li>
-                <li className="flex gap-2"><span>3.</span> Asrama</li>
-                <li className="flex gap-2"><span>4.</span> Kelas</li>
-                <li className="flex gap-2"><span>5.</span> Perpustakaan</li>
-                <li className="flex gap-2"><span>6.</span> Kantor</li>
-                <li className="flex gap-2"><span>7.</span> Mini Market (ABA)</li>
-                <li className="flex gap-2"><span>8.</span> Kamar Mandi/WC</li>
-                <li className="flex gap-2"><span>9.</span> Taman Bermain</li>
-                <li className="flex gap-2"><span>10.</span> Lahan Perkebunan</li>
-                <li className="flex gap-2"><span>11.</span> Lab Komputer</li>
-              </ul>
-            </div>
+                {/* 3. MTW */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                  <td className="px-4 py-4 font-bold text-emerald-700 dark:text-emerald-400 border-r border-slate-100 dark:border-slate-700">3. MTW (Mutawassithah / Setara SMP)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">3 tahun</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Paket B & Standar Madinah Univ.</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">2,5 juz/tahun & 450 Hadits</td>
+                  <td className="px-2 py-4 text-center text-emerald-600 font-semibold">Berbeasiswa</td>
+                </tr>
 
+                {/* 4. IL */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors bg-slate-50/50 dark:bg-slate-800/50">
+                  <td className="px-4 py-4 font-bold text-teal-700 dark:text-teal-400 border-r border-slate-100 dark:border-slate-700">4. IL (Al-I'dad Al-Lughawi / Pra-TSN)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">1 tahun (Fokus Bahasa)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Persiapan intensif keislaman dasar</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">1 juz/tahun & 100 Hadits</td>
+                  <td className="px-2 py-4 text-center text-emerald-600 font-semibold">Berbeasiswa bagi yg ingin pengabdi</td>
+                </tr>
+
+                {/* 5. TSN */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                  <td className="px-4 py-4 font-bold text-blue-700 dark:text-blue-400 border-r border-slate-100 dark:border-slate-700">5. TSN (Ats-Tsanawiyah / Setara SMA)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">3 tahun</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Formal, ILD, atau Tahfidzh (Paket C)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Terbanyak hingga 750 Hadits</td>
+                  <td className="px-2 py-4 text-center text-slate-500">Sesuai jurusan spesifik</td>
+                </tr>
+
+                {/* 6. MAL */}
+                <tr className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors bg-slate-50/50 dark:bg-slate-800/50">
+                  <td className="px-4 py-4 font-bold text-rose-700 dark:text-rose-400 border-r border-slate-100 dark:border-slate-700">6. MAL (Ma'had 'Ali / Setara S1 S.Pd)</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">4 tahun</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">Kurikulum Ma'had 'Ali & Kuliah S.Pd</td>
+                  <td className="px-2 py-4 text-center border-r border-slate-100 dark:border-slate-700">2,5 juz/tahun & 450 Hadits</td>
+                  <td className="px-2 py-4 text-center text-emerald-600 font-semibold">Berbeasiswa</td>
+                </tr>
+
+              </tbody>
+            </table>
           </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Ekstrakurikuler */}
+            <div className="glass p-8 rounded-3xl border-l-4 border-l-amber-500 shadow-xl bg-white dark:bg-slate-800">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900/50 rounded-xl flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl">🛠️</div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Ekstrakurikuler Pilihan</h3>
+              </div>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Santri dan santriwati dapat bebas memilih ekstrakurikuler guna membekali diri dengan soft-skill maupun hard-skill:
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {['Industri Kimia (Sabun/Deterjen)', 'Komputer', 'Tata Boga', 'Beladiri Karate', 'Pertukangan & Perbengkelan', 'Tata Rias', 'Gardening', 'Tata Busana'].map((eks, i) => (
+                  <span key={i} className="px-3 py-1 bg-amber-50 dark:bg-slate-700 text-amber-700 dark:text-amber-300 rounded-full text-xs font-semibold border border-amber-200 dark:border-slate-600">{eks}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Binaan & Alumni */}
+            <div className="space-y-6">
+              <div className="glass p-6 rounded-3xl border-l-4 border-l-blue-500 shadow-xl bg-white dark:bg-slate-800">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Binaan Ponpes DQH OKUT</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Ponpes tahfidz putri UBK Prabumulih, 9 Rumah Tahfidzh, serta konsultan pendidikan di berbagai daerah.
+                </p>
+              </div>
+              <div className="glass p-6 rounded-3xl border-l-4 border-l-emerald-500 shadow-xl bg-white dark:bg-slate-800">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Pegawai & Alumni Tersebar</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  <strong>Pendidikan:</strong> Univ. Islam Madinah (KSA), LIPIA (Jakarta), STDI Imam Syafii, dll.<br />
+                  <strong>Mengajar di:</strong> Berbagai instansi di Kalsel, Jogja, Riau, Sumsel, dll.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* CTA Bottom */}
       <section className="py-20 bg-emerald-600 dark:bg-emerald-900 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Pendaftaran SD Islam Miftahul Khoir</h2>
-          <p className="text-emerald-100 text-lg mb-10">Jangan lewatkan kesempatan untuk bergabung mencetak generasi muslim yang berilmu dan bermanfaat.</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Pendaftaran Santri Baru Dibuka!</h2>
+          <p className="text-emerald-100 text-lg mb-10">Jangan lewatkan kesempatan untuk bergabung bersama keluarga besar Pondok Pesantren DQH OKU Timur.</p>
           <Link
             href="/pendaftaran"
             className="inline-block px-10 py-4 rounded-xl bg-white text-emerald-700 font-bold text-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
