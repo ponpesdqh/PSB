@@ -15,30 +15,40 @@ export default function CekStatus() {
         if (!query) return;
 
         setIsSearching(true);
-        // Simulate API request to GAS backend checkStatus
+        setResult(null);
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            if (!apiUrl) {
+                alert('API URL belum diatur. Hubungi administrator.');
+                return;
+            }
+            const res = await fetch(`${apiUrl}?action=cekStatus&query=${encodeURIComponent(query.trim())}`);
+            const json = await res.json();
 
-            // Mock data logic based on query
-            if (query === 'LUNAS123') {
+            if (json.status === 200 && json.data && json.data.found) {
+                const d = json.data;
+                const statusColors: Record<string, { color: string; bg: string }> = {
+                    'Menunggu': { color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-900/20' },
+                    'Verifikasi Dokumen': { color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+                    'Diterima': { color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
+                    'Ditolak': { color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-900/20' },
+                };
+                const sc = statusColors[d.status] || statusColors['Menunggu'];
                 setResult({
-                    noDaftar: 'PSB-26-0001',
-                    namaPendaftar: 'Ahmad Abdullah',
-                    jalurPilihan: 'SMP Islam',
-                    statusUtama: 'Pembayaran Diterima',
-                    color: 'text-emerald-600 dark:text-emerald-400',
-                    bg: 'bg-emerald-50 dark:bg-emerald-900/20'
+                    noDaftar: d.no_daftar,
+                    namaPendaftar: d.nama_sensor,
+                    jalurPilihan: d.jalur || d.asal_sekolah || '-',
+                    statusUtama: d.status,
+                    catatan: d.catatan_admin || '',
+                    color: sc.color,
+                    bg: sc.bg,
                 });
             } else {
-                setResult({
-                    noDaftar: query.toUpperCase(),
-                    namaPendaftar: 'Calon Santri',
-                    jalurPilihan: 'SD Islam',
-                    statusUtama: 'Belum Bayar',
-                    color: 'text-amber-600 dark:text-amber-400',
-                    bg: 'bg-amber-50 dark:bg-amber-900/20'
-                });
+                alert('Data tidak ditemukan. Pastikan Nomor Pendaftaran / NIK sudah benar.');
             }
+        } catch (err) {
+            console.error(err);
+            alert('Terjadi kesalahan jaringan. Silakan coba lagi.');
         } finally {
             setIsSearching(false);
         }

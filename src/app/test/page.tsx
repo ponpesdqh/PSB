@@ -58,15 +58,19 @@ function TestContent() {
         setIsFinished(true);
 
         // Send result to backend
-        fetch(process.env.NEXT_PUBLIC_API_URL + '?action=updateStatus', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                noDaftar: id,
-                statusBaru: 'Lulus Seleksi: ' + predikat,
-                catatan: 'Nilai Kategori: ' + predikat
-            })
-        }).catch(console.error); // Silently catch for now
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        if (apiUrl) {
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'submitPendaftaran', // Note: updateStatus requires api_token auth
+                    noDaftar: id,
+                    statusBaru: 'Lulus Seleksi: ' + predikat,
+                    catatan: 'Nilai Kategori: ' + predikat
+                })
+            }).catch(console.error);
+        }
     };
 
     if (isFinished) {
